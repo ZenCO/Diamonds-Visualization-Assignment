@@ -1,0 +1,58 @@
+---
+title: "Making Diamonds Data Sparkle 2"
+author: "Chase Smith"
+date: "5/21/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+## Environment
+
+Run this to set up the environment for plotting data
+
+```{r}
+library(tidyverse)
+```
+ ## Exploring some C's
+ 
+ https://www.bluenile.com/education/diamonds
+ 
+ The website explains the 4 C's of diamonds (Cut, Color, Clarity, Carat).  We will explore the relationships between the price of the diamond and the 4 C's.
+ 
+ ## Carats, Cut, Clarity and Price
+ 
+ This should be a fairly straightforward view.  We can see that across all cuts, the value of the diamond is heavily weighted by the clarity of the diamond.  You will notice that the diamond cutters obviously are spending more time getting an ideal cut on diamonds with the best clarity.
+ 
+```{r}
+ggplot(data = diamonds)+
+geom_point(mapping = aes(x = carat, y = price, color = clarity))+
+  facet_wrap(~cut, nrow = 2)
+
+  
+  
+```
+
+## Clarity and Color
+
+
+
+```{r}
+ggplot(data = diamonds)+
+geom_point(mapping = aes(x = carat, y = price, color = clarity))+
+  facet_wrap(~color, nrow = 2)
+```
+ 
+```{r}
+ggplot(data = diamonds)+
+  geom_jitter(mapping = aes(x = clarity, y=price, fill = carat))+
+  facet_wrap(~cut)
+```
+ 
+ 

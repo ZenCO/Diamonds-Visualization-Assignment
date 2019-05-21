@@ -17,13 +17,11 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 Run this to set up the environment for plotting data
 
-```{r cars}
+```{r}
 library(tidyverse)
-Diamond_Data <- diamonds
-Diamond_Gap <- diamonds
 ```
 
-##Data Table
+## Data Table
 
 Put there here to help visualize the data as a Table
 
@@ -34,14 +32,14 @@ ggplot2::diamonds
 
 
 
-#Initial Histogram
+## Initial Histogram
 
 ```{r pressure, echo=FALSE}
 ggplot(diamonds,mapping = aes(price)) +
   geom_histogram(bins = 500)
 ```
 
-##Mind the Gap
+## Mind the Gap
 
 Notice there appears to be a gap in the data that does not make sense.  This chart narrows the resolution.
 
@@ -55,7 +53,7 @@ ggplot(Diamond_Gap,mapping = aes(price)) +
 ```
 
 
-##Exploring the Gap in Data
+## Exploring the Gap in Data
 
 Let's create a tibble that narrows in on the prices between $1453 and $1546 just to confirm.  And yes, there is a gap where the prices skip from $1454 to $1546.  This is noted because there clearly is an issue with the data.  It doesn't make sense that there is a $90+ gap
 
@@ -64,3 +62,6 @@ Let's create a tibble that narrows in on the prices between $1453 and $1546 just
 ggplot2::diamonds %>% filter(price <= 1546 & price >= 1453)
 ```
 
+## This is just the initial data analysis.
+
+To be continued at http://rpubs.com/ZenCO/DiamondsSparkle2
