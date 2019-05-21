@@ -34,7 +34,7 @@ ggplot2::diamonds
 
 ## Initial Histogram
 
-```{r pressure, echo=FALSE}
+```{r}
 ggplot(diamonds,mapping = aes(price)) +
   geom_histogram(bins = 500)
 ```

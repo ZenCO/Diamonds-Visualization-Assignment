@@ -1,0 +1,10 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/498060/941b002c8d76407da88d766a42a4b47e
+bundleId: https://api.rpubs.com/api/v1/document/498060/941b002c8d76407da88d766a42a4b47e
+url: http://rpubs.com/ZenCO/498060
+when: 1558424848.32179
