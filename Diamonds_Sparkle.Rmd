@@ -1,0 +1,66 @@
+---
+title: "Making Diamonds Data Sparkle"
+author: "Chase Smith"
+date: "5/20/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+## Environment
+
+Run this to set up the environment for plotting data
+
+```{r cars}
+library(tidyverse)
+Diamond_Data <- diamonds
+Diamond_Gap <- diamonds
+```
+
+##Data Table
+
+Put there here to help visualize the data as a Table
+
+```{r}
+ggplot2::diamonds
+```
+>
+
+
+
+#Initial Histogram
+
+```{r pressure, echo=FALSE}
+ggplot(diamonds,mapping = aes(price)) +
+  geom_histogram(bins = 500)
+```
+
+##Mind the Gap
+
+Notice there appears to be a gap in the data that does not make sense.  This chart narrows the resolution.
+
+```{r}
+
+Diamond_Gap <- diamonds %>% filter(price <= 1600 & price >= 1400)
+ggplot(Diamond_Gap,mapping = aes(price)) +
+  geom_histogram(bins = 50)+
+  ggtitle("Data Might Be Missing")
+
+```
+
+
+##Exploring the Gap in Data
+
+Let's create a tibble that narrows in on the prices between $1453 and $1546 just to confirm.  And yes, there is a gap where the prices skip from $1454 to $1546.  This is noted because there clearly is an issue with the data.  It doesn't make sense that there is a $90+ gap
+
+```{r}
+
+ggplot2::diamonds %>% filter(price <= 1546 & price >= 1453)
+```
+
