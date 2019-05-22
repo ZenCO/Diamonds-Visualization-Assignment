@@ -34,14 +34,11 @@ library(tidyverse)
 ggplot(data = diamonds)+
 geom_point(mapping = aes(x = carat, y = price, color = clarity))+
   facet_wrap(~cut, nrow = 2)
-
-  
-  
 ```
 
 ## Clarity and Color
 
-
+Again, we are seeing a similar pattern
 
 ```{r}
 ggplot(data = diamonds)+
@@ -49,10 +46,20 @@ geom_point(mapping = aes(x = carat, y = price, color = clarity))+
   facet_wrap(~color, nrow = 2)
 ```
  
+## Cut vs Clarity
+
+This is admittedly an ugly chart and I would want to find a way to make it prettier.
+
+I think I will revisit this later this weekend... I just need time to really think through how I want to approach this.
 ```{r}
-ggplot(data = diamonds)+
+Diamond_Carat <- diamonds %>% filter(carat<= 2)
+ggplot(data = Diamond_Carat)+
   geom_jitter(mapping = aes(x = clarity, y=price, fill = carat))+
   facet_wrap(~cut)
+
+
+
+
 ```
  
  
